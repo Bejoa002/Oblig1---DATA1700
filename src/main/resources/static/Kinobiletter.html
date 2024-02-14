@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="Kinobiletter.js"></script>
 </head>
-<h1>Bestilling av kinobiletter</h1>
+<h1>Bestilling av kinobilletter</h1>
 
 Velg film:&nbsp;<select id="filmer">
-    <option>Velg film her</option>
+    <option selected disabled hidden>Velg film her</option>
     <option>Oppenheimer</option>
     <option>Dune: Part Two</option>
     <option>Barbie</option>
@@ -15,19 +16,21 @@ Velg film:&nbsp;<select id="filmer">
     <option>Madame Web</option>
 </select><br><br>
 
-Antall&nbsp;<input type="number" id="Antall"><br><br>
+Antall&nbsp;<input type="number" id="antall"><br><br>
 
 <table>
-    <tr><td>Fornavn</td><td><input type="text"></td></tr>
-    <tr><td>Etternavn</td><td><input type="text"></td></tr>
-    <tr><td>Telefonnr</td><td><input type="text"></td></tr>
-    <tr><td>Epost</td><td><input type="text"></td></tr>
+    <tr><td>Fornavn</td><td><input type="text" id="fornavn"></td></tr>
+    <tr><td>Etternavn</td><td><input type="text" id="etternavn"></td></tr>
+    <tr><td>Telefonnr</td><td><input type="text" id="telefonnr"></td></tr>
+    <tr><td>Epost</td><td><input type="text" id="epost"></td></tr>
 
-    <tr><td><button onclick="">Kjøp billett</button></td></tr>
-
-    <tr><td><h2>Alle billetter</h2></td></tr>
-    <tr><td><button onclick="">Slett alle billettene</button></td></tr>
+    <tr><td><button onclick="kjøp()">Kjøp billett</button></td></tr>
 </table>
+
+<h2>Alle billetter</h2>
+<div id="billetter"></div>
+<button onclick="slett()">Slett alle billettene</button>
+
 <body>
 
 </body>
