@@ -7,7 +7,6 @@
 </head>
 <h1>Bestilling av kinobilletter</h1>
 
-<div id="filmdiv">
 Velg film:&nbsp;<select id="filmer">
     <option selected disabled hidden>Velg film her</option>
     <option>Oppenheimer</option>
@@ -16,18 +15,19 @@ Velg film:&nbsp;<select id="filmer">
     <option>Bob Marley: One Love</option>
     <option>Madame Web</option>
 </select>
-    <text><font color="red" id="blankFilmer" hidden>Du må velge en film</font></text></div><br>
+    <text id="blankFilmer"></text><br><br> <!--Tom tekst som vil inneholde feilmeldinger//-->
 
 <label for="antall"></label>
-<div id="antalldiv">Antall&nbsp;<input type="number" id="antall" value="0" min="0" max="99"><text><font color="red" id="blankAntall" hidden>Velg antall billetter</font></text></div><br><br>
+Antall&nbsp;<input type="text" id="antall" value="0" onchange="nummer(this.value)">
+<text id="blankAntall"></text><br><br> <!--Tom tekst som vil inneholde feilmeldinger//-->
 
 <table>
-    <tr><td>Fornavn</td><td><input type="text" id="fornavn" onchange=""></td><td hidden id="blankFornavn"><font color="red">Må fylles inn</font><td></tr>
-    <tr><td>Etternavn</td><td><input type="text" id="etternavn"></td><td hidden id="blankEtternavn"><font color="red">Må fylles inn</font><td></tr>
-    <tr><td>Telefonnr</td><td><input type="text" id="telefonnr"></td><td hidden id="blankTelefonnr"><font color="red">Må fylles inn</font><td></tr>
-    <tr><td>Epost</td><td><input type="text" id="epost"></td><td hidden id="blankEpost"><font color="red">Må fylles inn</font><td></tr>
+    <tr><td>Fornavn</td><td><input type="text" id="fornavn" onchange=""></td><td id="blankFornavn"><td></tr>
+    <tr><td>Etternavn</td><td><input type="text" id="etternavn"></td><td id="blankEtternavn"><td></tr>
+    <tr><td>Telefonnr</td><td><input type="text" id="telefonnr"></td><td id="blankTelefonnr"><td></tr>
+    <tr><td>Epost</td><td><input type="text" id="epost"></td><td id="blankEpost"><td></tr>
 
-    <tr><td><button onclick="kjøp()">Kjøp billett</button></td></tr>
+    <tr><td><button onclick="buy()" id="buyButton">Kjøp billett</button></td></tr>
 </table>
 
 <h2>Alle billetter</h2>
