@@ -5,8 +5,10 @@
     <title>Title</title>
     <script src="Kinobiletter.js"></script>
 </head>
+<body>
 <h1>Bestilling av kinobilletter</h1>
 
+<label for="filmer"></label>
 Velg film:&nbsp;<select id="filmer">
     <option selected disabled hidden>Velg film her</option>
     <option>Oppenheimer</option>
@@ -17,24 +19,25 @@ Velg film:&nbsp;<select id="filmer">
 </select>
     <text id="blankFilmer"></text><br><br> <!--Tom tekst som vil inneholde feilmeldinger//-->
 
+
 <label for="antall"></label>
-Antall&nbsp;<input type="text" id="antall" value="0" onchange="nummer(this.value)">
+Antall&nbsp;<input type="text" id="antall" value="0" size="1" onchange="nummer(this.value)">
 <text id="blankAntall"></text><br><br> <!--Tom tekst som vil inneholde feilmeldinger//-->
 
-<table>
-    <tr><td>Fornavn</td><td><input type="text" id="fornavn" onchange=""></td><td id="blankFornavn"><td></tr>
+<label for="fornavn"></label><label for="etternavn"></label><label for="telefonnr"></label><label for="epost"></label>
+<table id="innhold">
+    <tr><td>Fornavn</td><td><input type="text" id="fornavn"></td><td id="blankFornavn"><td></tr>
     <tr><td>Etternavn</td><td><input type="text" id="etternavn"></td><td id="blankEtternavn"><td></tr>
     <tr><td>Telefonnr</td><td><input type="text" id="telefonnr"></td><td id="blankTelefonnr"><td></tr>
-    <tr><td>Epost</td><td><input type="text" id="epost"></td><td id="blankEpost"><td></tr>
+    <tr><td>Epost</td><td><input type="text" id="epost" ></td><td id="blankEpost"><td></tr>
 
     <tr><td><button onclick="buy()" id="buyButton">Kjøp billett</button></td></tr>
 </table>
 
+
 <h2>Alle billetter</h2>
 <div id="billetter"></div>
 <button onclick="slett()">Slett alle billettene</button>
-
-<body>
 
 </body>
 </html>
