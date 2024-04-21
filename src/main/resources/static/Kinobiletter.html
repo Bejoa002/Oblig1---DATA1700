@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="Kinobiletter.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <h1>Bestilling av kinobilletter</h1>
@@ -20,12 +21,13 @@ Velg film:&nbsp;<select id="filmer">
     <text id="blankFilmer"></text><br><br> <!--Tom tekst som vil inneholde feilmeldinger//-->
 
 
-<label for="antall"></label>
-Antall&nbsp;<input type="text" id="antall" value="0" size="1" onchange="nummer(this.value)">
+<label for="antall">Antall</label>
+<input type="text" id="antall" value="0" size="1" onchange="nummer(this.value)">
 <text id="blankAntall"></text><br><br> <!--Tom tekst som vil inneholde feilmeldinger//-->
 
 <label for="fornavn"></label><label for="etternavn"></label><label for="telefonnr"></label><label for="epost"></label>
 <table id="innhold">
+
     <tr><td>Fornavn</td><td><input type="text" id="fornavn"></td><td id="blankFornavn"><td></tr>
     <tr><td>Etternavn</td><td><input type="text" id="etternavn"></td><td id="blankEtternavn"><td></tr>
     <tr><td>Telefonnr</td><td><input type="text" id="telefonnr"></td><td id="blankTelefonnr"><td></tr>
@@ -37,7 +39,7 @@ Antall&nbsp;<input type="text" id="antall" value="0" size="1" onchange="nummer(t
 
 <h2>Alle billetter</h2>
 <div id="billetter"></div>
-<button onclick="slett()">Slett alle billettene</button>
+<button onclick="slettAlle()">Slett alle billettene</button>
 
 </body>
 </html>

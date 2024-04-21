@@ -52,7 +52,7 @@ function buy(){
     else {document.getElementById("blankFilmer").innerHTML = ""}
 
     //Validation for antall billetter
-    if(antall === "0"){
+    if(antall < "1"){
         let Blank = document.getElementById("blankAntall")
         let String = "Du må velge antall billetter"
         String = String.fontcolor("red");
@@ -125,28 +125,20 @@ function buy(){
 
     //Oppretter filmobjektet
     const FilmObjekt = {
-        Film: film,
-        Antall: antall,
-        Fornavn: fornavn,
-        Etternavn: etternavn,
-        Telefonnr: telefonnr,
-        Epost: epost
+        film: film,
+        antall: antall,
+        fornavn: fornavn,
+        etternavn: etternavn,
+        telefonnr: telefonnr,
+        epost: epost
     };
     filmer.push(FilmObjekt);
 
-    //Oppretter tabellen
-    let ut = "<table><tr>" +
-        "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etteranvn</th><th>Telefonnr</th><th>Epost</th>" +
-        "</tr>"
 
-    for (let i of filmer){
-        ut+= "<tr><td>" + i.Film + "</td><td>" + i.Antall + "</td><td>" + i.Fornavn + "</td><td>" +
-            i.Etternavn + "</td><td>" + i.Telefonnr + "</td><td>" + i.Epost + "</td></tr>"
-    }
-
-    ut+= "</table>"
-
-    document.getElementById("billetter").innerHTML = ut;
+    //lagring på server
+    $.post("/lagre", FilmObjekt, function (){
+        hentAlle();
+    })
 
     //Blanking av alle feltene
     document.getElementById("filmer").selectedIndex = 0;
@@ -157,8 +149,31 @@ function buy(){
     document.getElementById("epost").value = '';
 }
 
-// funkjson som tømmer hele film-objekt-arrayet og fjerner tabellen
-function slett(){
-    filmer.splice(0, filmer.length);
-    document.getElementById("billetter").innerHTML = "";
+
+function hentAlle(){
+    $.get("/hentAlle", function (data){
+        formaterData(data);
+    })
+}
+
+
+//Oppretter tabellen
+function formaterData(filmer){
+    let ut = "<table><tr>" +
+        "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etteranvn</th><th>Telefonnr</th><th>Epost</th>" +
+        "</tr>"
+
+    for (let i of filmer){
+        ut+= "<tr><td>" + i.film + "</td><td>" + i.antall + "</td><td>" + i.fornavn + "</td><td>" +
+            i.etternavn + "</td><td>" + i.telefonnr + "</td><td>" + i.epost + "</td></tr>"
+    }
+    ut+= "</table>"
+    document.getElementById("billetter").innerHTML = ut;
+}
+
+// funksjon som tømmer hele film-objekt-arrayet og fjerner tabellen
+function slettAlle() {
+    $.get("/slettAlle", function (){
+        document.getElementById("billetter").innerHTML = "";
+    })
 }
