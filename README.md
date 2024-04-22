@@ -14,3 +14,7 @@ kjøpe og se kinobilletter. I applikasjonen er du nødt til å fylle inn alle fe
 For å sikre at kun riktige ting kan skrives inn i feltene når man kjøper en billett. Sjekkes det at ingen felt er
 blanke, og det er brukt regex validation for epostadresse og telefonnummer. Applikasjon gir deg også mulighet til å
 se og slette billetter man allerede har kjøpt.
+
+Data lagres på server ved bruk av springboot og tomcat. Nettsiden er også stylet ved bruk av spring-boot.
+
+Litt usikker på hvorfor tabellen for alle billette ikke strekker seg helt ut til høyre.

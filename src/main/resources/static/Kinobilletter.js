@@ -159,7 +159,7 @@ function hentAlle(){
 
 //Oppretter tabellen
 function formaterData(filmer){
-    let ut = "<table><tr>" +
+    let ut = "<table class='table table-striped'><tr>" +
         "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etteranvn</th><th>Telefonnr</th><th>Epost</th>" +
         "</tr>"
 
