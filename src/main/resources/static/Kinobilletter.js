@@ -171,6 +171,9 @@ function formaterData(filmer){
     document.getElementById("billetter").innerHTML = ut;
 }
 
+
+
+
 // funksjon som tømmer hele film-objekt-arrayet og fjerner tabellen
 function slettAlle() {
     $.get("/slettAlle", function (){
